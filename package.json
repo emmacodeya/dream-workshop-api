@@ -1,0 +1,11 @@
+{
+  "name": "dream-workshop-api",
+  "version": "1.0.0",
+  "description": "JSON Server for Dream Workshop API",
+  "scripts": {
+    "start": "json-server --host 0.0.0.0 --watch db.json --port 3000 --static ./public"
+  },
+  "dependencies": {
+    "json-server": "^0.17.0"
+  }
+}
