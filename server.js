@@ -13,11 +13,11 @@ server.use(cors());
 server.use(middlewares);
 server.use(jsonServer.bodyParser);
 server.use("/assets", express.static(path.join(__dirname, "public")));
+
+
 server.use((req, res, next) => {
   if (["POST", "PUT", "DELETE", "PATCH"].includes(req.method)) {
-    setTimeout(() => {
-      fs.writeFileSync(path.join(__dirname, "db.json"), JSON.stringify(router.db.getState(), null, 2));
-    }, 500); 
+    fs.writeFileSync(path.join(__dirname, "db.json"), JSON.stringify(router.db.getState(), null, 2));
   }
   next();
 });
