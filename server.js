@@ -1,4 +1,5 @@
 const jsonServer = require("json-server");
+const express = require("express"); 
 const fs = require("fs");
 const path = require("path");
 const cors = require("cors");
@@ -6,11 +7,12 @@ const cors = require("cors");
 const server = jsonServer.create();
 const router = jsonServer.router(path.join(__dirname, "db.json"));
 const middlewares = jsonServer.defaults();
+const app = express(); 
 
 server.use(cors());
 server.use(middlewares);
 server.use(jsonServer.bodyParser);
-server.use("/assets", jsonServer.static(path.join(__dirname, "public")));
+server.use("/assets", express.static(path.join(__dirname, "public")));
 server.use((req, res, next) => {
   if (["POST", "PUT", "DELETE", "PATCH"].includes(req.method)) {
     setTimeout(() => {
@@ -19,7 +21,6 @@ server.use((req, res, next) => {
   }
   next();
 });
-
 
 server.use(router);
 
