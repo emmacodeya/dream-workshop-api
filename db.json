@@ -1581,15 +1581,13 @@
     "id": 1,
     "name": "系統管理員",
     "account": "admin",
-    "password": "admin123",
-    "role": "superadmin"
+    "password": "admin123"
   },
   {
     "id": 2,
     "name": "活動小編",
     "account": "activity001",
-    "password": "pass456",
-    "role": "editor"
+    "password": "pass456"
   }
 ]
 }
